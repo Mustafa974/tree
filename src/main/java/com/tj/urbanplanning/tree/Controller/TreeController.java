@@ -10,13 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "treeRecordApi")
-@Controller
+@RestController
 public class TreeController {
 
     @Autowired
@@ -25,6 +22,7 @@ public class TreeController {
     @RequestMapping(value = "/saveTreeRecord", method = RequestMethod.POST)
     @ApiOperation(value = "存储树籍信息")
     @ResponseBody
+    @CrossOrigin
     public ResponseEntity<?> saveTree(@RequestBody TreeRecord treeRecord){
         try {
             if(treeService.saveTreeRecord(treeRecord)){
@@ -41,6 +39,7 @@ public class TreeController {
     @RequestMapping(value = "/getTreeRecord", method = RequestMethod.POST)
     @ApiOperation(value = "获取树籍信息")
     @ResponseBody
+    @CrossOrigin
     public ResponseEntity<?> getTree(@RequestBody int id){
         try {
             TreeRecord treeRecord = treeService.getTreeRecord(id);
@@ -58,6 +57,7 @@ public class TreeController {
     @RequestMapping(value = "/saveMaintainRecord", method = RequestMethod.POST)
     @ApiOperation(value = "存储树籍维护信息")
     @ResponseBody
+    @CrossOrigin
     public ResponseEntity<?> saveMaintain(@RequestBody MaintainRecord treeRecord){
         try {
             if(treeService.saveMaintainRecord(treeRecord)){
@@ -74,6 +74,7 @@ public class TreeController {
     @RequestMapping(value = "/getMaintainRecord", method = RequestMethod.POST)
     @ApiOperation(value = "存储树籍维护信息")
     @ResponseBody
+    @CrossOrigin
     public ResponseEntity<?> getMaintain(@RequestBody int id){
         try {
             MaintainRecord treeRecord = treeService.getMaintainRecord(id);
@@ -91,6 +92,7 @@ public class TreeController {
     @RequestMapping(value = "/saveDangerRecord", method = RequestMethod.POST)
     @ApiOperation(value = "存储树籍危险信息")
     @ResponseBody
+    @CrossOrigin
     public ResponseEntity<?> saveDanger(@RequestBody DangerRank treeRecord){
         try {
             if(treeService.saveDangerRecord(treeRecord)){
@@ -107,6 +109,7 @@ public class TreeController {
     @RequestMapping(value = "/getDangerRecord", method = RequestMethod.POST)
     @ApiOperation(value = "获取树籍危险信息")
     @ResponseBody
+    @CrossOrigin
     public ResponseEntity<?> getDanger(@RequestBody int id){
         try {
             DangerRank treeRecord = treeService.getDangerRecord(id);

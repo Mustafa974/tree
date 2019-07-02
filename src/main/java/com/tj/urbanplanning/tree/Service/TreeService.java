@@ -7,10 +7,12 @@ import com.tj.urbanplanning.tree.Entity.DangerRank;
 import com.tj.urbanplanning.tree.Entity.MaintainRecord;
 import com.tj.urbanplanning.tree.Entity.TreeRecord;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+@Component
 @Service
 public class TreeService {
 
